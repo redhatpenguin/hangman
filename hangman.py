@@ -176,45 +176,8 @@ def play():
     
 
     
-    
-      
-
 if __name__ == "__main__":
   a = play()
   while input("다음 게임으로 넘어가시겠습니까? (Y/N): ").upper() == "Y":
     a = play()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-def start():
-  os.system('clear')
-  print("""HANGMAN GAME
-
-  1.play
-
-  2. tutorial
-
-  """)
-  ask = int(input("Enter number: "))
-  return ask
-
-
-  
-def tutorial():
-  os.system('clear')
-  print("tutorial")
- 
