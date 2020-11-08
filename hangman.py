@@ -130,6 +130,7 @@ def play():
   print("힌트를 얻고 싶으시다면 '힌트'라고 입력하세요.")
   print(drawing[wrong])
   print(' '.join(matchletter)+"\n")
+  guess = input("글자를 입력하시오: ")
   
   while True: # break될때까지 글자 물어보기
     if guess not in guessed and len(guess)==1:   # 처음 입력해보는 글자이고 한 글자라면:
