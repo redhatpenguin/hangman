@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+ #!/usr/bin/env python3
 # os,time,csv,random 모듈을 import한다.
 import os
 import time
@@ -131,7 +131,6 @@ def play():
   print(drawing[wrong])
   print(' '.join(matchletter)+"\n")
   guess = input("글자를 입력하시오: ")
-  
   while True: # break될때까지 글자 물어보기
     if guess not in guessed and len(guess)==1:   # 처음 입력해보는 글자이고 한 글자라면:
       if guess in letterlist:   # 입력한 글자가 단어에 포함되면 해당 자리에 '_' 대신 글자 보여주기
@@ -160,25 +159,24 @@ def play():
     print(drawing[wrong])
     print(' '.join(matchletter)+"\n")
     
-    if end == False:  # 단어를 맞추거나 게임에서 지지 않아서 게임이 끝나지 않았으면 글자 물어보기
-      guess = input("글자를 입력하시오: ")
-    if (''.join(matchletter) == word) or guess == word: # 단어를 맞추면 '정답' 프린트, end를 True로 변경해서 게임 끝났다고 알리기
+    if matchletter == letterlist or guess == word: # 단어를 맞추면 '정답' 프린트, end를 True로 변경해서 게임 끝났다고 알리기
       print("정답!")
       end = True
-    if wrong == 6:     # 6번 틀리면 '게임오버' 프린트, end를 True로 변경해서 게임 끝났다고 알리기
+    elif wrong == 6:     # 6번 틀리면 '게임오버' 프린트, end를 True로 변경해서 게임 끝났다고 알리기
       print("게임오버!")
       end = True
 
-    if end == True:  # 게임이 끝나서 end가 True 이면 정답과 단어 뜻을 알려주고 while문 끝내기
+    if end == False:  # 단어를 맞추거나 게임에서 지지 않아서 게임이 끝나지 않았으면 글자 물어보기
+      guess = input("글자를 입력하시오: ")
+    
+    else:  # 게임이 끝나서 end가 True 이면 정답과 단어 뜻을 알려주고 while문 끝내기
       print("단어는 '"+word+"' 였습니다")
       print("뜻: "+meaning)
       time.sleep(2)
       break    
     
 
-    
 if __name__ == "__main__":
   a = play()
   while input("다음 게임으로 넘어가시겠습니까? (Y/N): ").upper() == "Y":
     a = play()
-
